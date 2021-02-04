@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheet"
+    android:focusable="true"
+    android:clickable="true"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="72dp"
+    android:paddingBottom="32dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    android:background="@drawable/bg_layout"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/pull"
+        android:background="@drawable/pull_indicator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0"
+        android:layout_marginTop="8dp"
+        android:layout_width="96dp"
+        android:layout_height="4dp"/>
+
+    <ImageView
+        android:id="@+id/img_weather"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        app:srcCompat="@drawable/cloudy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/text_lat_lng"
+        app:layout_constraintTop_toTopOf="@id/text_location"/>
+
+    <TextView
+        android:id="@+id/text_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Cibinong, Indonesia"
+        android:textColor="#292929"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toBottomOf="@+id/img_weather"
+        app:layout_constraintStart_toEndOf="@+id/img_weather"
+        app:layout_constraintTop_toBottomOf="@id/pull" />
+    <TextView
+        android:id="@+id/text_lat_lng"
+        app:layout_constraintTop_toBottomOf="@id/text_location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/text_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/silver_dark"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="0"
+        android:text="1.3239232,-103.231334"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/text_temperature"
+        android:text="28"
+        android:textSize="48sp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:textColor="@color/silver_dark"
+        android:layout_marginTop="24dp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintTop_toBottomOf="@id/text_location"
+        app:layout_constraintStart_toEndOf="@id/text_weather"
+        app:layout_constraintEnd_toStartOf="@id/text_unit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/text_unit"
+        android:text="℃"
+        android:textSize="24sp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="0"
+        android:textColor="@color/silver_dark"
+        app:layout_constraintTop_toTopOf="@id/text_temperature"
+        app:layout_constraintBottom_toBottomOf="@id/text_temperature"
+        app:layout_constraintStart_toEndOf="@id/text_temperature"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:id="@+id/v_divider"
+        app:layout_constraintTop_toTopOf="@id/text_temperature"
+        app:layout_constraintBottom_toBottomOf="@id/text_temperature"
+        app:layout_constraintStart_toEndOf="@id/text_unit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginStart="16dp"
+        android:background="@color/silver_dark"
+        android:layout_width="2dp"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:id="@+id/text_wind_speed"
+        android:text="@string/wind_speed"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/silver_dark"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/text_temperature"
+        app:layout_constraintBottom_toTopOf="@id/text_humidity"
+        app:layout_constraintStart_toEndOf="@id/v_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/text_humidity"
+        android:text="@string/humidity"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/silver_dark"
+        app:layout_constraintTop_toBottomOf="@id/text_wind_speed"
+        app:layout_constraintBottom_toBottomOf="@id/text_temperature"
+        app:layout_constraintStart_toEndOf="@id/v_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/text_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Rainy"
+        app:layout_constraintHorizontal_bias="0"
+        android:textColor="#292929"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@id/text_temperature"
+        app:layout_constraintBottom_toBottomOf="@id/text_temperature"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_temperature" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
